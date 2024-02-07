@@ -17,4 +17,16 @@ sudo apt update
 
 # Install latest
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Install fuse-overlayfs
+sudo apt install fuse-overlayfs
+
+# Change storage driver to fuse-overlayfs
+mkdir /etc/docker
+touch /etc/docker/daemon.json
+echo '{
+  "storage-driver": "fuse-overlayfs"
+}' > /etc/docker/daemon.json
+
+# Test hello-world
 sudo docker run hello-world
