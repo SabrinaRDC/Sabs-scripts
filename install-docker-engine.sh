@@ -46,8 +46,10 @@ echo -e "${IGreen}Storage driver changed to fuse-overlayfs${ResetColor}"
 # Test hello-world
 echo -e "${ICyan}Running hello-world${ResetColor}"
 sudo docker run hello-world
+echo -e "${ICyan}Pruning containers${ResetColor}"
 sudo docker container prune -f
 echo -e "${IGreen}Containers pruned${ResetColor}"
-sudo docker iamge prune -a -f
+echo -e "${ICyan}Pruning images${ResetColor}"
+sudo docker image prune -a -f
 echo -e "${IGreen}Images pruned${ResetColor}"
 echo -e "${IGreen}END${ResetColor}"
