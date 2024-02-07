@@ -1,3 +1,5 @@
+NC='\033[0m'
+BGreen='\033[1;32m'
 # Uninstall all conflicting packages
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt remove $pkg; done
 
@@ -17,7 +19,7 @@ sudo apt update
 
 # Install latest
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-echo "Docker Engine Installed"
+echo '${BGreen}Docker Engine Installed${NC}'
 
 # Install fuse-overlayfs
 sudo apt install fuse-overlayfs
@@ -28,7 +30,7 @@ touch /etc/docker/daemon.json
 echo '{
   "storage-driver": "fuse-overlayfs"
 }' > /etc/docker/daemon.json
-echo "Storage driver changed to fuse-overlayfs"
+echo '${BGreen}Storage driver changed to fuse-overlayfs${NC}'
 
 # Test hello-world
 sudo docker run hello-world
