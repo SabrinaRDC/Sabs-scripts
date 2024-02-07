@@ -2,8 +2,7 @@ ResetColor='\033[0m'
 IGreen='\033[0;92m'
 ICyan='\033[0;96m'
 # Uninstall all conflicting packages
-echo "Removing conflicting packages"
-
+echo -e "${ICyan}Removing conflicting packages${ResetColor}"
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt remove $pkg; done
 
 # Add Docker's official GPG key:
