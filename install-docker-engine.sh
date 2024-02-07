@@ -9,7 +9,7 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 echo -e "${ICyan}Updating repository${ResetColor}"
 sudo apt update
 echo -e "${ICyan}Installing ca-certificats & curl${ResetColor}"
-sudo apt install ca-certificates curl
+sudo apt install ca-certificates curl -y
 echo -e "${ICyan}Installing keyring${ResetColor}"
 sudo install -m 0755 -d /etc/apt/keyrings
 echo -e "${ICyan}Adding Docker's official GPG key${ResetColor}"
@@ -44,9 +44,10 @@ echo '{
 echo -e "${IGreen}Storage driver changed to fuse-overlayfs${ResetColor}"
 
 # Test hello-world
+echo -e "${ICyan}Running hello-world${ResetColor}"
 sudo docker run hello-world
-sudo docker container prune --force
+sudo docker container prune -f
 echo -e "${IGreen}Containers pruned${ResetColor}"
-sudo docker iamge prune --force
+sudo docker iamge prune -a -f
 echo -e "${IGreen}Images pruned${ResetColor}"
 echo -e "${IGreen}END${ResetColor}"
